@@ -169,32 +169,35 @@ A secure login system should return the same generic error message for both case
 
 I opened the patient portal login page and tested the error messages by entering different inputs.
 
-First, I entered a username that I assumed would not exist.
+First, I entered a username that I assumed would think of first, but.
 
 ```text
 username: bob
 password: test123
+```
 ## Response
 
+```text
 ### Username not found
-
+```
 I then tried a common default username.
 
+```text
 **Username:** `admin`  
 **Password:** `test123`
+```
 
 ### Response
-
+```text
 > Incorrect password
+```
 
 The two different responses confirmed that `admin` was a valid account on the system.
 
 This reduced the authentication attack surface because the username was now known and only the password remained to be discovered or bypassed.
 
-### Evidence
+### Evidence screenshot 
 
-- Screenshot: Browser showing "Username not found" for `bob`
-- Screenshot: Browser showing "Incorrect password" for `admin`
 
 ---
 
@@ -214,8 +217,10 @@ In this case, the username field was vulnerable to SQL injection. Controlled tes
 
 I tested the username field for SQL injection by entering a single quote.
 
+```text
 **Username:** `admin'`  
 **Password:** `test123`
+```
 
 ### Response
 
