@@ -472,7 +472,7 @@ The shareholder records were also extracted and converted into a readable table.
 ### Extracted Shareholder Records
 
 | Shareholder Name | Share Percentage | Share Class |
-|---|---:|---|
+|---|---|---|
 | Dr. Rajesh Naidoo | 18% | Ordinary |
 | Cedar Health Holdings (Pty) Ltd | 15% | Ordinary |
 | Dr. Johan van der Merwe | 12% | Ordinary |
