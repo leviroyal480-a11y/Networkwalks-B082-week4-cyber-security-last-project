@@ -170,6 +170,10 @@ This reduced the authentication attack surface because the username was now know
 
 ### Evidence screenshot 
 
+<img width="820" height="637" alt="WhatsApp Image 2026-09-10 at 7 55 42 AM" src="https://github.com/user-attachments/assets/cb4ead69-2839-4287-a739-fb5cb57f90a3" />
+
+<img width="820" height="636" alt="WhatsApp Image 2026-09-10 at 8 01 26 AM" src="https://github.com/user-attachments/assets/b52fca37-1cf5-4159-851b-14574040bb4c" />
+
 ---
 ## 3.3 Finding 2 — SQL Injection Login Bypass
 
@@ -227,6 +231,10 @@ Successful exploitation allowed authentication to be bypassed without knowing th
 This finding was the starting point for the subsequent attack chain.
 
 ### Evidence Screenshot
+
+<img width="819" height="635" alt="WhatsApp Image 2026-09-10 at 8 03 26 AM" src="https://github.com/user-attachments/assets/0c683c56-9494-4dcc-932b-7b58bcabc1a5" />
+
+<img width="820" height="632" alt="WhatsApp Image 2026-09-10 at 8 02 47 AM" src="https://github.com/user-attachments/assets/51f650d6-a99c-484c-8ccc-ff1c071fbfef" />
 
 ---
 
@@ -302,6 +310,12 @@ The recovered passwords were then used to open the documents and verify their co
 
 ### Evidence Screenshot
 
+<img width="1366" height="642" alt="WhatsApp Image 2026-09-10 at 9 36 50 AM" src="https://github.com/user-attachments/assets/8b60e48d-7ed3-43de-864b-9358742a481d" />
+
+<img width="1366" height="640" alt="WhatsApp Image 2026-09-10 at 9 03 42 AM" src="https://github.com/user-attachments/assets/46371698-66bc-4147-9a8a-243a8b94bdd0" />
+
+<img width="1363" height="636" alt="WhatsApp Image 2026-09-10 at 8 56 46 AM" src="https://github.com/user-attachments/assets/f5f6b875-773b-4005-b0f8-52bfe2380b07" />
+
 ### Impact
 
 An attacker who obtained the encrypted documents could recover their passwords using common wordlists and gain access to confidential medical information.
@@ -346,8 +360,6 @@ The metadata revealed the location of a database backup on the server.
 
 The author identifier `j.malik` was later correlated with the staff records recovered from the database backup.
 
-### Evidence Screenshot
-
 ### Impact
 
 The metadata disclosure provided an attacker with an internal operational clue that directly assisted in locating sensitive server-side data.
@@ -386,9 +398,6 @@ mediroza_db_backup_2019.sql
 ```
 
 The file was then downloaded for authorised analysis.
-
-
-### Evidence screenshot
 
 ### Impact
 
@@ -500,6 +509,12 @@ IT Department
 This connected the metadata discovery with the database records and demonstrated how information from one vulnerability assisted in exploiting another.
 
 ### Evidence Screenshot
+
+#### The vulnerable report gave access the the exploiting of these documents:
+
+<img width="720" height="916" alt="WhatsApp Image 2026-09-12 at 2 16 29 PM" src="https://github.com/user-attachments/assets/8de84c03-145f-491e-8776-089b7343f4ec" />
+
+<img width="720" height="744" alt="WhatsApp Image 2026-09-12 at 2 13 57 PM" src="https://github.com/user-attachments/assets/2dae1d47-8f3e-4913-a606-99749f98b01b" />
 
 ### Impact
 
@@ -767,6 +782,8 @@ This report contains references to sensitive information obtained during a contr
 | **Batch** | B082 |
 | **Project** | Week 4 |
 | **Overall Risk** | **CRITICAL** |
+| **LinkedIn Link** |                                      |
+| **Appreciation** | @Waqas Karim my instructor and @NETWORKWALKS I am most grateful for baring with me and everyone till this last project, thank you very much. |
 
 ---
 
