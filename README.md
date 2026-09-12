@@ -782,7 +782,7 @@ This report contains references to sensitive information obtained during a contr
 | **Batch** | B082 |
 | **Project** | Week 4 |
 | **Overall Risk** | **CRITICAL** |
-| **LinkedIn Link** |                                      |
+| **LinkedIn Post Link** | https://lnkd.in/p/d_e63FKU |
 | **Appreciation** | @Waqas Karim my instructor and @NETWORKWALKS I am most grateful for baring with me and everyone till this last project, thank you very much. |
 
 ---
