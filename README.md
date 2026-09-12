@@ -387,11 +387,8 @@ mediroza_db_backup_2019.sql
 
 The file was then downloaded for authorised analysis.
 
-```
 
-
-### Evidence 
-screenshot
+### Evidence screenshot
 
 ### Impact
 
