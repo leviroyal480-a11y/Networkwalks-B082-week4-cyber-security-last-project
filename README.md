@@ -437,7 +437,7 @@ The shareholder records were also extracted and converted into a readable table.
 ### Extracted Staff Records
 
 | Name | Job Title | Department | Monthly Salary (ZAR) |
-|---|---|---|---:|
+|---|---|---|---|
 | Dr. Rajesh Naidoo | Chief Pathologist | Diagnostics Lab | 138,000 |
 | Sarah Botha | Chief Financial Officer | Finance | 152,000 |
 | Dr. Johan van der Merwe | Medical Director | Management | 160,000 |
