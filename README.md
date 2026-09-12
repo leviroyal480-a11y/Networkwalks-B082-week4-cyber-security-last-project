@@ -3,10 +3,10 @@
 ## Mediroza General Hospital
 ### Web Application Security Assessment
 
-**Prepared by:** Emmanuel Bafi  
+**Prepared by:** Monday Royal Levi 
 **Cybersecurity Mentor:** Waqas Karim, CCIE  
 **Organisation:** Networkwalks  
-**Batch:** B082 | Week 4 Capstone Project  
+**Batch:** B082 | Week 4
 **Target:** `https://medirozahospital.com`  
 **Classification:** Confidential
 
@@ -70,14 +70,7 @@ The assessment was limited to the following target as agreed with the client.
 
 ```text
 https://medirozahospital.com
-### Out of Scope
-
-The following activities were excluded from the assessment:
-
-- Social engineering
-- Denial-of-service attacks
-- Testing outside the agreed domain
-- Any activity without explicit authorisation
+```
 
 ---
 
@@ -113,7 +106,6 @@ Recording findings, evidence, impact, and remediation recommendations.
 | Networkwalks Password Cracker | Testing PDF password hashes against wordlists |
 | `qpdf` | Decrypting password-protected PDF files after authorised password recovery |
 | `exiftool` | Analysing PDF metadata |
-| `wget` | Downloading files during the authorised assessment |
 | ChatGPT | Converting raw SQL data into readable tables |
 
 ---
@@ -153,16 +145,20 @@ The patient portal login page was tested with different username and password co
 **Test 1:**
 
 ```text
-Username: bob
-Password: test123
+Username: mediroza 
+Password: 1234567
+```
+
 ## Response
 
 ### Username not found
 
-I then tried a common default username.
+I then tried a common default username and password because I tried the default username and my previous password it said password not correct.
 
+```text
 **Username:** `admin`  
-**Password:** `test123`
+**Password:** `password`
+```
 
 ### Response
 
@@ -172,10 +168,7 @@ The two different responses confirmed that `admin` was a valid account on the sy
 
 This reduced the authentication attack surface because the username was now known and only the password remained to be discovered or bypassed.
 
-### Evidence
-
-- Screenshot: Browser showing "Username not found" for `bob`
-- Screenshot: Browser showing "Incorrect password" for `admin`
+### Evidence screenshot 
 
 ---
 ## 3.3 Finding 2 — SQL Injection Login Bypass
@@ -193,8 +186,8 @@ In this case, the username field was vulnerable to SQL injection. Controlled tes
 
 I tested the username field for SQL injection by entering a single quote.
 
-**Username:** `admin'`  
-**Password:** `test123`
+**Username:** `admin'--`  
+**Password:** `password`
 
 ### Response
 
@@ -209,7 +202,7 @@ The database error confirmed that the input was reaching the SQL query without a
 The application was effectively constructing a query similar to:
 
 ```sql
-SELECT * FROM users WHERE username='admin'' AND password='test123'
+SELECT * FROM users WHERE username='admin'' AND password='password'
 ```
 
 The additional quote altered the SQL syntax and produced the database error.
@@ -217,7 +210,7 @@ The additional quote altered the SQL syntax and produced the database error.
 Controlled testing then demonstrated that the authentication logic could be bypassed using a comment-based SQL injection payload.
 
 **Username:** `admin' --`  
-**Password:** `anything`
+**Password:** `password`
 
 The resulting query structure effectively reduced the authentication condition to the username check:
 
@@ -233,10 +226,7 @@ Successful exploitation allowed authentication to be bypassed without knowing th
 
 This finding was the starting point for the subsequent attack chain.
 
-### Evidence
-
-- Screenshot: Database error generated after entering a single quote
-- Screenshot: Logged-in patient portal after controlled SQL injection testing
+### Evidence Screenshot
 
 ---
 
@@ -263,10 +253,7 @@ The portal listed three downloadable PDF files:
 
 The files were downloaded for authorised assessment and analysis.
 
-### Evidence
-
-- Screenshot: Patient portal showing the three downloadable reports
-- Screenshot: Downloaded report files in the Downloads folder
+### Evidence Screenshot
 
 ### Impact
 
@@ -305,7 +292,7 @@ Reports 1 and 2 were successfully recovered using the built-in 100-word default 
 
 Report 3 did not crack using the built-in list.
 
-A larger authorised password wordlist was then used for the assessment.
+A larger authorised password wordlist(JTR default) was then used for the assessment.
 
 ```text
 patient_report_3.pdf → !@#$%^&
@@ -313,11 +300,7 @@ patient_report_3.pdf → !@#$%^&
 
 The recovered passwords were then used to open the documents and verify their contents.
 
-### Evidence
-
-- Screenshot: Networkwalks Password Cracker showing the recovered password for Report 1
-- Screenshot: Networkwalks Password Cracker showing the recovered password for Report 3
-- Screenshot: Opened PDF showing patient medical information
+### Evidence Screenshot
 
 ### Impact
 
@@ -363,9 +346,7 @@ The metadata revealed the location of a database backup on the server.
 
 The author identifier `j.malik` was later correlated with the staff records recovered from the database backup.
 
-### Evidence
-
-- Screenshot: exiftool output showing the Author and Comments fields
+### Evidence Screenshot
 
 ### Impact
 
@@ -406,13 +387,11 @@ mediroza_db_backup_2019.sql
 
 The file was then downloaded for authorised analysis.
 
-```bash
-wget https://medirozahospital.com/old/mediroza_db_backup_2019.sql
 ```
 
-### Evidence
 
-- Screenshot: Browser showing the `/old/` directory listing with the SQL backup visible
+### Evidence 
+screenshot
 
 ### Impact
 
@@ -523,10 +502,7 @@ IT Department
 
 This connected the metadata discovery with the database records and demonstrated how information from one vulnerability assisted in exploiting another.
 
-### Evidence
-
-- Screenshot: Extracted staff salary table
-- Screenshot: Extracted shareholder table
+### Evidence Screenshot
 
 ### Impact
 
@@ -658,16 +634,6 @@ The current login query should be replaced with a parameterised query or prepare
 
 Prepared statements separate SQL code from user-controlled input and prevent crafted input from changing the structure of the SQL query.
 
-### Safe PHP PDO Example
-
-```php
-$stmt = $pdo->prepare(
-    "SELECT * FROM users WHERE username = ? AND password = ?"
-);
-
-$stmt->execute([$username, $password]);
-```
-
 ### Additional Recommendations
 
 - Use prepared statements throughout the application.
@@ -779,12 +745,12 @@ A follow-up security assessment should be conducted after remediation to confirm
 
 # 7. Disclaimer
 
-**Submitted by:** Emmanuel Bafi  
+**Submitted by:** Monday Royal Levi 
 **Cybersecurity Mentor:** Waqas Karim, CCIE  
 **Organisation:** Networkwalks  
-**Batch:** B082 | Week 4 Capstone Project
+**Batch:** B082 | Week 4
 
-This report was produced as part of the Networkwalks B082 Cybersecurity Internship Week 4 Capstone Project.
+This report was produced as part of the Networkwalks B082 Cybersecurity Internship Week 4.
 
 The target was authorised for security testing, and all testing activities were conducted within the agreed scope and with written authorisation from the client.
 
@@ -802,7 +768,7 @@ This report contains references to sensitive information obtained during a contr
 | **Target** | Mediroza General Hospital |
 | **Programme** | Networkwalks Cybersecurity Internship |
 | **Batch** | B082 |
-| **Project** | Week 4 Capstone |
+| **Project** | Week 4 |
 | **Overall Risk** | **CRITICAL** |
 
 ---
